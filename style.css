@@ -1,0 +1,80 @@
+*{
+    background-color: #0E1738;
+    color: white;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+body {
+    display: block;
+    margin: 0;
+    max-width: 100%;
+    padding: 0 115px;
+    font-size: 16px;
+}
+
+/* NAVBAR */
+
+.navbar {
+    position: relative;
+    justify-content: center;
+}
+
+.navbar ul {
+    text-align: center;
+}
+
+.navbar ul a {
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    padding: 0 10px;
+    
+}
+
+/* HOME SECTION */
+
+.home {
+    height: 400px;
+}
+
+.home h1 {
+    font-size: 4rem;
+}
+
+.home .intro {
+    width: 400px;
+
+}
+
+
+/* TECH STACK SECTION*/
+
+.techstack {
+    height: 200px;
+}
+
+.techstack h2 {
+    padding-bottom: 50px;
+}
+
+.techstack div {
+    display: block;
+    
+}
+
+.techstack ul div {
+    display: inline-block;
+    width: 80px;
+    height: 150px;
+    padding-right: 20%;
+    text-align: center;
+}
+
+.techstack ul div p {
+    text-align: center;
+}
+
+.techstack ul div img {
+    width: 80px;
+    height: auto;
+}
