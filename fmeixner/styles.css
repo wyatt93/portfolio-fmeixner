@@ -1,0 +1,476 @@
+/* ============================================================
+   styles.css  –  Fabian Meixner Personal Website
+   ============================================================ */
+
+/* ------------------------------------------------------------
+   1. Design Tokens (Custom Properties)
+   ------------------------------------------------------------ */
+:root {
+  --color-bg:       #0a0a0f;
+  --color-surface:  #13131a;
+  --color-card:     #1a1a24;
+  --color-border:   #2a2a3a;
+  --color-accent:   #6c63ff;
+  --color-accent2:  #00d4aa;
+  --color-text:     #e8e8f0;
+  --color-muted:    #7a7a9a;
+
+  --radius-card:    14px;
+  --nav-height:     64px;
+}
+
+/* ------------------------------------------------------------
+   2. Reset & Base
+   ------------------------------------------------------------ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* ------------------------------------------------------------
+   3. Navigation
+   ------------------------------------------------------------ */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  height: var(--nav-height);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 clamp(1rem, 5vw, 4rem);
+  background: rgba(10, 10, 15, 0.75);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.nav-logo {
+  font-weight: 700;
+  font-size: 1.1rem;
+  background: linear-gradient(135deg, var(--color-accent), var(--color-accent2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+.nav-links a {
+  color: var(--color-text);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover {
+  color: var(--color-text);
+}
+
+/* ------------------------------------------------------------
+   4. Layout Utilities
+   ------------------------------------------------------------ */
+section {
+  padding: 6rem clamp(1rem, 8vw, 10rem);
+}
+
+section:first-of-type {
+  padding-top: calc(var(--nav-height) + 5rem);
+}
+
+/* ------------------------------------------------------------
+   5. Shared Components
+   ------------------------------------------------------------ */
+
+/* Section title */
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 700;
+  margin-bottom: 3rem;
+}
+
+.section-title::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, var(--color-border), transparent);
+}
+
+/* Badge / Tag */
+.tag {
+  display: inline-block;
+  padding: 0.2rem 0.6rem;
+  border-radius: 99px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  background: rgba(108, 99, 255, 0.15);
+  color: var(--color-accent);
+}
+
+.tag--infra {
+  background: rgba(0, 212, 170, 0.12);
+  color: var(--color-accent2);
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.7rem 1.5rem;
+  border-radius: 99px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn--primary {
+  background: linear-gradient(135deg, var(--color-accent), #8b5cf6);
+  color: #fff;
+  box-shadow: 0 4px 20px rgba(108, 99, 255, 0.35);
+}
+
+.btn--primary:hover {
+  box-shadow: 0 8px 30px rgba(108, 99, 255, 0.5);
+}
+
+.btn--outline {
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.btn--outline:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+.btn-group {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.btn-group img {
+  width: 30px;
+  height: 30px;
+}
+
+/* ------------------------------------------------------------
+   6. Hero Section (#about)
+   ------------------------------------------------------------ */
+#about {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background:
+    radial-gradient(ellipse 60% 50% at 10% 40%, rgba(108, 99, 255, 0.12), transparent),
+    radial-gradient(ellipse 50% 40% at 90% 60%, rgba(0, 212, 170, 0.08), transparent);
+}
+
+.hero-inner {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 4rem;
+  align-items: center;
+  width: 100%;
+}
+
+.hero-greeting {
+  color: var(--color-accent2);
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.hero-name {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 1rem;
+}
+
+.hero-name span {
+  background: linear-gradient(135deg, var(--color-accent), var(--color-accent2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-role {
+  font-size: 1.25rem;
+  color: var(--color-muted);
+  margin-bottom: 1.5rem;
+}
+
+.hero-bio {
+  max-width: 54ch;
+  color: var(--color-muted);
+  line-height: 1.8;
+  margin-bottom: 2rem;
+}
+
+.avatar-wrap {
+  width: 320px;
+  height: 320px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--color-accent), var(--color-accent2));
+  padding: 3px;
+}
+
+.avatar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: var(--color-surface);
+  font-size: 5rem;
+  overflow: hidden;
+}
+
+.avatar-inner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/* ------------------------------------------------------------
+   7. CV Section (#cv)
+   ------------------------------------------------------------ */
+#cv {
+  background: var(--color-surface);
+}
+
+.cv-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.cv-col h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-accent2);
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.cv-item {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 1.75rem;
+}
+
+.cv-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.55rem;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-accent);
+}
+
+.cv-item::after {
+  content: '';
+  position: absolute;
+  left: 3.5px;
+  top: 1.2rem;
+  bottom: -1.5rem;
+  width: 1px;
+  background: var(--color-border);
+}
+
+.cv-item:last-child::after {
+  display: none;
+}
+
+.cv-date {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-accent);
+  margin-bottom: 0.2rem;
+}
+
+.cv-role {
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.cv-org {
+  color: var(--color-muted);
+  font-size: 0.9rem;
+  margin-bottom: 0.4rem;
+}
+
+.cv-desc {
+  color: var(--color-muted);
+  font-size: 0.88rem;
+}
+
+/* ------------------------------------------------------------
+   8. Skills Sections
+   ------------------------------------------------------------ */
+#net-skills {
+  background: var(--color-surface);
+}
+
+#net-skills .section-title {
+  --color-accent: var(--color-accent2);
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2.5rem;
+}
+
+.skill-card {
+  position: relative;
+  overflow: hidden;
+  padding: 2rem;
+  /* ursprünglich 0.13 und 0.07 */
+  background:
+    linear-gradient(135deg, rgba(108, 99, 255, 0.13) 0%, rgba(0, 212, 170, 0.07) 100%),
+    var(--color-card);
+  border: 1px solid transparent;
+  border-radius: var(--radius-card);
+  /* Gradient border via background-clip trick */
+  background-clip: padding-box;
+  box-shadow: 0 0 0 1px var(--color-border);
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.skill-card:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 0 0 1px var(--color-accent),
+    0 12px 32px rgba(0, 0, 0, 0.4),
+    0 0 24px rgba(108, 99, 255, 0.12);
+}
+
+.skill-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  margin-bottom: 1rem;
+  /*
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.07); */
+  font-size: 2rem;
+}
+
+.skill-icon img {
+  height: 52px;
+  width: 52px;
+}
+
+.skill-name {
+  font-weight: 700;
+  font-size: 1.05rem;
+  margin-bottom: 0.6rem;
+}
+
+.skill-desc {
+  color: var(--color-muted);
+  font-size: 0.875rem;
+  line-height: 1.7;
+}
+
+/* ------------------------------------------------------------
+   9. Contact Section (#contact)
+   ------------------------------------------------------------ */
+#contact {
+  text-align: center;
+  background: radial-gradient(ellipse 60% 60% at 50% 100%, rgba(108, 99, 255, 0.1), transparent);
+}
+
+#contact p {
+  color: var(--color-muted);
+  max-width: 45ch;
+  margin: 0 auto 2rem;
+}
+
+#contact .section-title {
+  justify-content: center;
+}
+
+#contact .btn-group {
+  justify-content: center;
+}
+
+/* ------------------------------------------------------------
+   10. Footer
+   ------------------------------------------------------------ */
+footer {
+  padding: 2rem 1rem;
+  border-top: 1px solid var(--color-border);
+  color: var(--color-muted);
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+/* ------------------------------------------------------------
+   11. Responsive – Mobile
+   ------------------------------------------------------------ */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+
+  .hero-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .avatar-wrap {
+    width: 140px;
+    height: 140px;
+    order: -1;
+  }
+
+  .avatar-inner {
+    font-size: 3rem;
+  }
+
+  .cv-grid {
+    grid-template-columns: 1fr;
+  }
+}
